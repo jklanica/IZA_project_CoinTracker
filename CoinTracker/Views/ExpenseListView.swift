@@ -11,10 +11,9 @@ import CoreData
 // view showing a list of all expenses
 struct ExpenseListView: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @Environment(\.appAlert) private var appAlert
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \ExpenseModel.date, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \ExpenseModel.date, ascending: false)],
         animation: .default)
     private var expenses: FetchedResults<ExpenseModel>
 

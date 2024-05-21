@@ -26,7 +26,6 @@
 		892D8E932BD84D1D00F5B4A5 /* ExpenseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D8E922BD84D1C00F5B4A5 /* ExpenseListView.swift */; };
 		898C52562BDAC713008BA92A /* MonthlyExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898C52552BDAC711008BA92A /* MonthlyExpensesView.swift */; };
 		89E6A1AB2BD842C000EB6392 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6A1AA2BD842BD00EB6392 /* DateFormatter.swift */; };
-		89FDB2F62BD95A4700690BB4 /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FDB2F52BD95A4500690BB4 /* EnvironmentKeys.swift */; };
 		89FDB2F82BD9726300690BB4 /* AppAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FDB2F72BD9726300690BB4 /* AppAlert.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +50,6 @@
 		892D8E922BD84D1C00F5B4A5 /* ExpenseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseListView.swift; sourceTree = "<group>"; };
 		898C52552BDAC711008BA92A /* MonthlyExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyExpensesView.swift; sourceTree = "<group>"; };
 		89E6A1AA2BD842BD00EB6392 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
-		89FDB2F52BD95A4500690BB4 /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
 		89FDB2F72BD9726300690BB4 /* AppAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,7 +88,6 @@
 				892661FC2BD3D8D3000AD92C /* Models */,
 				892661E92BD3D773000AD92C /* CoinTrackerApp.swift */,
 				8926620C2BD3E1C0000AD92C /* ContentView.swift */,
-				89FDB2F52BD95A4500690BB4 /* EnvironmentKeys.swift */,
 				892661ED2BD3D777000AD92C /* Assets.xcassets */,
 				892661F42BD3D777000AD92C /* CoinTracker.xcdatamodeld */,
 				892661EF2BD3D777000AD92C /* Preview Content */,
@@ -230,7 +227,6 @@
 				892662042BD3D8F5000AD92C /* ExpenseItemModel+CoreDataProperties.swift in Sources */,
 				892D8E892BD8481B00F5B4A5 /* CenteredModalView.swift in Sources */,
 				892D8E932BD84D1D00F5B4A5 /* ExpenseListView.swift in Sources */,
-				89FDB2F62BD95A4700690BB4 /* EnvironmentKeys.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
