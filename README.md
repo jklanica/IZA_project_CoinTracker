@@ -1,5 +1,5 @@
-Autor: Jan Klanica
-Login: xklani00
+Autor: Jan Klanica<br>
+Login: xklani00<br>
 github: https://github.com/jklanica/IZA_project_CoinTracker
 
 # Záznamník výdajů
