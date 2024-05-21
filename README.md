@@ -30,8 +30,25 @@ Pokud v aplikace nastane nějaká chyba (většinou nejde uložit kontext), vysk
 
 ## Fotky
 
-![All expenses](/ReadmeAssets/all_expenses.png)
-![Expense detail](/ReadmeAssets/expense_detail.png)
-![Edit expense](/ReadmeAssets/expense_detail_edit.png)
-![Edit expense item](/ReadmeAssets/expense_item_edit.png)
-![Monthly expenses](/ReadmeAssets/monthly_expenses.png)
+<div style="display: flex; flex-wrap: wrap;">
+    <figure style="max-width: 20rem">
+        <img src="./ReadmeAssets/all_expenses.png" alt="All expenses">
+        <figcaption>All expenses</figcaption>
+    </figure>
+    <figure style="max-width: 20rem">
+        <img src="./ReadmeAssets/expense_detail.png" alt="Expense detail">
+        <figcaption>Expense detail</figcaption>
+    </figure>
+    <figure style="max-width: 20rem">
+        <img src="./ReadmeAssets/expense_detail_edit.png" alt="Edit expense">
+        <figcaption>Edit expense</figcaption>
+    </figure>
+    <figure style="max-width: 20rem">
+        <img src="./ReadmeAssets/expense_item_edit.png" alt="Edit expense item">
+        <figcaption>Edit expense item</figcaption>
+    </figure>
+    <figure style="max-width: 20rem">
+        <img src="./ReadmeAssets/monthly_expenses.png" alt="Monthly expenses">
+        <figcaption>Monthly expenses</figcaption>
+    </figure>
+</div>
