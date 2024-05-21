@@ -22,6 +22,7 @@ extension ExpenseModel {
     @NSManaged public var expenseItems: NSSet?
 }
 
+// add safe getters and setters to unify access to the model across the app
 extension ExpenseModel {
     var Name: String {
         get {

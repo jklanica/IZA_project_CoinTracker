@@ -7,12 +7,14 @@
 
 import SwiftUI
 
+// view for editing an expense item
 struct ExpenseItemEditView: View {
     @Binding var item: ExpenseItemModel
     @Binding var isPresented: Bool
 
     var body: some View {
         VStack {
+            // name
             HStack {
                 Text("Name")
                 TextField("Name", text: $item.Name)
@@ -20,6 +22,7 @@ struct ExpenseItemEditView: View {
                     .disableAutocorrection(true)
             }
 
+            // count
             HStack {
                 Text("Count")
                 TextField("Count", value: $item.Count, formatter: NumberFormatter())
@@ -28,6 +31,7 @@ struct ExpenseItemEditView: View {
                     .keyboardType(.numberPad)
             }
 
+            // price per unit
             HStack {
                 Text("Price Per Unit")
                 TextField("Price Per Unit", value: $item.PricePerUnit, formatter: NumberFormatter())
@@ -44,6 +48,7 @@ struct ExpenseItemEditView: View {
                     )
             }
 
+            // save button
             HStack {
                 Spacer()
                 Button(action: {

@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import CoreData
 
+// view showing monthly expenses
 struct MonthlyExpensesView: View {
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \ExpenseModel.date, ascending: false)],
@@ -22,12 +23,14 @@ struct MonthlyExpensesView: View {
     private func groupExpenses() {
         var allExpensesGrouped_: [YearExpenses] = []
         for expenseModel in expenses {
+            // year of expense
             let year = Calendar.current.dateComponents([.year], from: expenseModel.DateOfPayment).year!
             let monthInt = Calendar.current.dateComponents([.month], from: expenseModel.DateOfPayment).month!
             
+            // month of expense
             let month = Month.intToMonth(num: monthInt)
             
-            // new year
+            // it is a year not yet in the list
             if (allExpensesGrouped_.count == 0 || allExpensesGrouped_[allExpensesGrouped_.count-1].year != year) {
                 let yearExpenses = YearExpenses(year: year, monthExpenses: [MonthExpense(month: month, totalExpense: expenseModel.TotalPrice)])
                 allExpensesGrouped_.append(yearExpenses)
@@ -49,30 +52,36 @@ struct MonthlyExpensesView: View {
                 continue
             }
             
-            // new month in already exisitng year
+            // new month in already existing year
             let monthExpense = MonthExpense(month: month, totalExpense: expenseModel.TotalPrice)
             var yearExpenses = allExpensesGrouped_[allExpensesGrouped_.count-1]
             yearExpenses.monthExpenses.append(monthExpense)
             allExpensesGrouped_[allExpensesGrouped_.count-1] = yearExpenses
         }
         
-        // trigger update and update
+        // trigger update (did not work without)
         allExpensesGrouped = []
+        // update value
         allExpensesGrouped = allExpensesGrouped_
     }
     
     var body: some View {
         NavigationView {
+            // all expenses grouped by year and month
             List {
                 ForEach(allExpensesGrouped, id: \.self) { yearExpenses in
                     Section (header:
+                        // year as a section header
                         Text(String(yearExpenses.year))
                             .font(.headline)
                     ) {
+                        // all months in a year in which there were expenses
                         ForEach(yearExpenses.monthExpenses, id: \.self) { monthExpense in
                             HStack {
+                                // month
                                 Text(monthExpense.month.toString())
                                 Spacer()
+                                // total expense in the month
                                 Text(monthExpense.totalExpense, format: .currency(code: "CZK"))
                             }
                         }
@@ -82,11 +91,13 @@ struct MonthlyExpensesView: View {
             .navigationTitle(Text("Monthly Expenses"))
         }
         .onAppear() {
+            // update on every view load
             groupExpenses()
         }
     }
 }
 
+// represents a year with all its expenses grouped by month
 struct YearExpenses: Hashable {
     var year: Int
     var monthExpenses: [MonthExpense]
@@ -100,6 +111,7 @@ struct YearExpenses: Hashable {
     }
 }
 
+// represents a month with its total expense
 struct MonthExpense: Hashable {
     var month: Month
     var totalExpense: Double

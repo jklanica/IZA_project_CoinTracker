@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// AppAlert is a singleton class that is used to show alerts in the app
 class AppAlert: ObservableObject {
     static let shared = AppAlert()
 
@@ -18,6 +19,7 @@ class AppAlert: ObservableObject {
 
     private var _alert: Alert?
 
+    // use nil to dismiss the alert, use Alert to show the alert
     public func setAlert(alert: Alert?) {
         if (alert == nil) {
             isPresented = false

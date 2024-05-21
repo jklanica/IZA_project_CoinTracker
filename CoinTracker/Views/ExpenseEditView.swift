@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 
+// view for editing an expense
 struct ExpenseEditView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
@@ -94,8 +95,10 @@ struct ExpenseEditView: View {
     
     func updateExpenseItem() {
         do {
+            // save
             try viewContext.save()
         } catch {
+            // display error
             let nsError = error as NSError
             print("Unresolved error \(nsError), \(nsError.userInfo)")
             AppAlert.shared.setAlert(alert: Alert(
@@ -106,12 +109,15 @@ struct ExpenseEditView: View {
     }
     
     func addExpenseItem() {
+        // new expense item
         let newExpenseItem = ExpenseItemModel(context: viewContext)
 
+        // set default values
         newExpenseItem.PricePerUnit = 0
         newExpenseItem.Count = 1
         newExpenseItem.Expense = expense
         
+        // open detail view for editing
         selectedExpenseItem = newExpenseItem
         isEditingExpenseItem = true
     }
@@ -119,13 +125,16 @@ struct ExpenseEditView: View {
     func deleteExpenseItem(at: IndexSet) {
         let objs = at.map { expense.ExpenseItems[$0] }
         
+        // delete all selected expense items
         for expenseItem in objs {
             viewContext.delete(expenseItem)
         }
 
         do {
+            // save
             try viewContext.save()
         } catch {
+            // display error
             let nsError = error as NSError
             print("Unresolved error \(nsError), \(nsError.userInfo)")
             AppAlert.shared.setAlert(alert: Alert(
