@@ -18,7 +18,6 @@ struct ExpenseListView: View {
     private var expenses: FetchedResults<ExpenseModel>
 
     @State private var selectedExpense: ExpenseModel?
-    @State private var addingExpense = false
     
     var body: some View {
         NavigationView {
@@ -26,7 +25,6 @@ struct ExpenseListView: View {
             List {
                 ForEach(expenses, id: \.self) { expense in
                     Button(action: {
-                        addingExpense = false
                         selectedExpense = expense
                     }) {
                         ExpenseRowView(expense: expense)
@@ -41,13 +39,12 @@ struct ExpenseListView: View {
             .background(
                 // hidden navigation link so that the expense detail view can be opened and a list item doesn't have a link style
                 NavigationLink(
-                    destination: selectedExpense.map { (selectedExpense_: ExpenseModel) -> ExpenseDetailView in
-                        return ExpenseDetailView(
-                            expense: Binding<ExpenseModel>(
+                    destination: selectedExpense.map { (selectedExpense_: ExpenseModel) -> ExpenseEditView in
+                        return ExpenseEditView(
+                           expense: Binding<ExpenseModel>(
                                 get: { selectedExpense_ },
-                                set: {newValue in selectedExpense = newValue}
-                            ),
-                            isEditing: addingExpense
+                                set: { newValue in selectedExpense = newValue }
+                            )
                         )
                     },
                     isActive: Binding<Bool>(
@@ -67,7 +64,6 @@ struct ExpenseListView: View {
     private var addButton: some View {
         Button(action: {
             let newExpense = addExpense()
-            addingExpense = true
             selectedExpense = newExpense
         }) {
             Image(systemName: "plus")
