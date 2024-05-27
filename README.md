@@ -27,11 +27,3 @@ Pro příští generace v mém postavení bych doporučil vypůjčit si virtuali
 ## Chybové stavy
 
 Pokud v aplikace nastane nějaká chyba (většinou nejde uložit kontext), vyskočí na obrazovce alert s upozorněním o chybě. Samotný alert se vkládá do aplikace ve view na nejvyšší úrovni. Je možné ho nastavit pomocí singletonu, který drží aktuální alert jako hodnotu (popřípadě nil).
-
-## Fotky
-
-![All expenses](/ReadmeAssets/all_expenses.png)
-![Expense detail](/ReadmeAssets/expense_detail.png)
-![Edit expense](/ReadmeAssets/expense_detail_edit.png)
-![Edit expense item](/ReadmeAssets/expense_item_edit.png)
-![monthly_expenses.png](/ReadmeAssets/monthly_expenses.png)
